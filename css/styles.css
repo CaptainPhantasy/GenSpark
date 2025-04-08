@@ -1,0 +1,246 @@
+/* Base Styles */
+:root {
+    --primary-color: #4a6fa5;
+    --primary-dark: #3a5a80;
+    --secondary-color: #f8f9fa;
+    --accent-color: #28a745;
+    --error-color: #dc3545;
+    --text-color: #333;
+    --light-text: #6c757d;
+    --border-color: #ced4da;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Typography */
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--light-text);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form Styles */
+form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+fieldset {
+    border: none;
+    padding: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+fieldset:last-of-type {
+    border-bottom: none;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.required {
+    color: var(--error-color);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Checkbox styles */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 6px;
+     width: auto; /* Prevent checkbox from stretching */
+}
+
+/* Button styles */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: var(--secondary-color);
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none; /* Ensure buttons have no default border */
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-dark);
+}
+
+button[type="reset"] {
+    background-color: transparent;
+    color: var(--light-text);
+    border: 1px solid var(--border-color);
+}
+
+button[type="reset"]:hover {
+    background-color: #e9ecef;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+/* Feedback container */
+#feedback-container {
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#feedback-container.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+#feedback-container.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: var(--error-color);
+    color: var(--error-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    fieldset {
+        padding: 20px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    fieldset {
+        padding: 15px;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .checkbox-item {
+        margin-right: 0;
+    }
+}

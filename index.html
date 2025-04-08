@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Your Custom AI Agent</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Request Your Custom AI Agent</h1>
+            <p class="intro">Help us understand the AI assistant you envision by filling out this form. We'll use this information to create a custom AI agent tailored to your specific needs.</p>
+        </header>
+
+        <div id="feedback-container" class="hidden" style="padding: 1em; margin-bottom: 1em; border-radius: 5px;">
+            <p id="feedback-message"></p>
+        </div>
+
+        <form id="ai-request-form">
+            <fieldset>
+                <legend>Contact Details</legend>
+                <div class="form-group">
+                    <label for="name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company/Organization (Optional)</label>
+                    <input type="text" id="company" name="company">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>AI Agent's Purpose</legend>
+                <div class="form-group">
+                    <label for="agent_name">Agent Name Idea (Optional)</label>
+                    <input type="text" id="agent_name" name="agent_name" placeholder="A potential name for your agent?">
+                </div>
+                <div class="form-group">
+                    <label for="primary_goal">Primary Goal <span class="required">*</span></label>
+                    <textarea id="primary_goal" name="primary_goal" placeholder="Describe the main task or problem this AI agent should handle. Examples: 'Answer FAQs', 'Summarize documents', 'Draft emails'." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="intended_users">Intended Users <span class="required">*</span></label>
+                    <input type="text" id="intended_users" name="intended_users" placeholder="Who will use this agent? Examples: 'Customers', 'Support Team', 'Internal Staff'." required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Behavior and Knowledge</legend>
+                <div class="form-group">
+                    <label for="knowledge_sources">Knowledge Sources <span class="required">*</span></label>
+                    <textarea id="knowledge_sources" name="knowledge_sources" placeholder="Where should the agent get its information? List URLs, mention document types you'll provide, specific databases, or if general web knowledge is needed." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tone">Desired Tone/Personality <span class="required">*</span></label>
+                     <select id="tone" name="tone" required>
+                        <option value="">Select an option</option>
+                        <option value="Friendly & Conversational">Friendly & Conversational</option>
+                        <option value="Formal & Professional">Formal & Professional</option>
+                        <option value="Neutral & Factual">Neutral & Factual</option>
+                        <option value="Witty & Engaging">Witty & Engaging</option>
+                        <option value="Other">Other (Describe below)</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="other-tone-container">
+                    <label for="other_tone">Other Tone Description</label>
+                    <textarea id="other_tone" name="other_tone" placeholder="Please describe the specific tone or personality you'd like your AI agent to have."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="restrictions">Restrictions/Limitations</label>
+                    <textarea id="restrictions" name="restrictions" placeholder="What should the agent avoid doing or saying? Examples: 'Do not give financial advice', 'Avoid sensitive topics', 'Stick strictly to provided documents'."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="handling_unknowns">Handling Unknowns <span class="required">*</span></label>
+                    <select id="handling_unknowns" name="handling_unknowns" required>
+                        <option value="">Select an option</option>
+                        <option value="Should say 'I don't know'">Should say "I don't know"</option>
+                        <option value="Should ask follow-up questions">Should ask follow-up questions</option>
+                        <option value="Should offer to escalate to a human">Should offer to escalate to a human</option>
+                        <option value="Should make an educated guess">Should make an educated guess</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Technical Needs</legend>
+                <div class="form-group">
+                    <label>Interaction Method <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                         <div class="checkbox-item">
+                            <input type="checkbox" id="web-chat" name="interaction_methods" value="Web chat interface">
+                            <label for="web-chat">Web chat interface</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="api" name="interaction_methods" value="API integration">
+                            <label for="api">API integration</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="chat-bot" name="interaction_methods" value="Slack/Discord bot">
+                            <label for="chat-bot">Slack/Discord bot</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interaction_email" name="interaction_methods" value="Email interaction">
+                            <label for="interaction_email">Email interaction</label>
+                        </div>
+                        <div class="checkbox-item">
+                             <input type="checkbox" id="interaction_other" name="interaction_methods" value="Other">
+                            <label for="interaction_other">Other (Describe below)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group hidden" id="other-interaction-container">
+                     <label for="other_interaction">Other Interaction Description</label>
+                    <textarea id="other_interaction" name="other_interaction" placeholder="Please describe the specific interaction method you'd like for your AI agent."></textarea>
+                </div>
+                <div class="form-group">
+                     <label for="additional_context">Additional Context</label>
+                    <textarea id="additional_context" name="additional_context" placeholder="Any other crucial details, examples of desired interactions, or specific requirements?"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" id="submit-button">Submit Request</button>
+                <button type="reset" id="reset-button">Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
