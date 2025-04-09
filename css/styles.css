@@ -1,3 +1,4 @@
+/* Extracted from inline styles */
 body {
     font-family: 'Arial', sans-serif;
     position: relative; /* Changed from fixed for better context with background */
@@ -6,6 +7,9 @@ body {
     /* Background color is fallback if image fails */
     background-color: #f5f7fa; /* Example fallback color */
     padding-top: 1px; /* Prevent margin collapse issues */
+    margin: 0; /* Added explicit margin reset */
+    /* Base font size for inheritance - can adjust if needed */
+    /* font-size: 16px; */
 }
 
 .background-container {
@@ -29,12 +33,13 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 85vh; /* Allow slightly more height */
+    max-height: 85vh; /* Kept same */
     overflow-y: auto; /* Add scrollbar if content exceeds max-height */
     scrollbar-width: thin; /* For Firefox */
     position: relative; /* Needed for stacking context */
     z-index: 1; /* Ensure form is above background */
-    /* Removed fixed width/margin, let container handle centering */
+    /* Tailwind classes handle centering/width: w-full max-w-xl */
+    /* Margin top/bottom also handled by Tailwind: mt-24 mb-24 md:mt-16 */
 }
 /* Scrollbar styling for Webkit browsers */
 .form-container::-webkit-scrollbar {
@@ -58,8 +63,13 @@ body {
     color: white;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    /* position: relative; - Removed, not needed */
+    /* Tailwind handles padding/flex: p-4 flex items-center */
 }
+/* Increased header text size */
+.form-header h1 {
+    font-size: 1.3em; /* Approx 30% larger than default */
+}
+
 
 .logo { /* Style if you use an <img> for logo */
     width: 40px;
@@ -69,9 +79,18 @@ body {
 
 .form-section {
     border-bottom: 1px solid #e5e7eb; /* Tailwind gray-200 */
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem; /* Added margin back */
+    padding-bottom: 1rem; /* Tailwind pb-4 */
+    /* margin-bottom handled by utility classes in HTML */
 }
+
+/* Increased section header text size */
+/* Target h2 within the form specifically */
+#legacyForm h2 {
+    font-size: 1.25rem; /* Tailwind text-xl (Approx 30% > text-lg) */
+    /* You might need to adjust line-height if text wraps badly */
+    /* line-height: 1.75rem; */
+}
+
 
 .form-section:last-child {
     border-bottom: none;
@@ -84,27 +103,34 @@ input[type="email"],
 textarea,
 select {
     border: 1px solid #d1d5db; /* Tailwind gray-300 */
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.25rem; /* 20px */
+    width: 100%; /* Tailwind w-full */
+    padding: 0.5rem; /* Tailwind p-2 */
+    border-radius: 4px; /* Tailwind rounded */
+    /* font-size: 0.875rem; /* Tailwind text-sm (14px) */
+    /* ****** Increased font size by ~30% ****** */
+    font-size: 1.1rem; /* Approx 17.6px */
+    line-height: 1.5; /* Adjusted line-height */
 }
-
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus,
 select:focus {
-    outline: none;
-    border-color: #3b82f6; /* Tailwind blue-500 */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-}
+     outline: none;
+     border-color: #3b82f6; /* Tailwind blue-500 */
+     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+ }
+
 
 label {
     font-weight: 500; /* Tailwind medium */
-    display: block;
+    display: block; /* Tailwind block */
     margin-bottom: 0.25rem; /* Tailwind mb-1 */
     color: #1f2937; /* Tailwind gray-800 */
+    /* ****** Increased font size by ~30% ****** */
+    /* Inherits base size, let's make it explicit and larger */
+    font-size: 1.1rem; /* Match input fields */
+    /* You might adjust line-height if needed */
+    /* line-height: 1.5; */
 }
 
 .required::after {
@@ -112,35 +138,39 @@ label {
     color: #ef4444; /* Tailwind red-500 */
 }
 
-button[type="submit"] {
+/* Style for the submit button itself */
+#submit-button { /* Targeting ID for specificity */
     background-color: #1e3a8a; /* Dark blue */
     color: white;
     font-weight: 500; /* Tailwind medium */
     padding: 0.75rem 1.5rem; /* Increased padding */
-    border-radius: 4px;
+    border-radius: 4px; /* Tailwind rounded */
     transition: background-color 0.2s;
     border: none; /* Ensure no border */
-    width: 100%; /* Make button full width */
+    width: 100%; /* Tailwind w-full */
     cursor: pointer;
+    /* ****** Increased font size by ~30% ****** */
+    font-size: 1.3rem; /* Approx 21px if base is 16px */
 }
 
-button[type="submit"]:hover {
+#submit-button:hover {
     background-color: #1e40af; /* Slightly lighter blue on hover */
 }
-button[type="submit"]:disabled {
+#submit-button:disabled {
     background-color: #9ca3af; /* Tailwind gray-400 */
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 
 .checkbox-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    display: flex; /* Tailwind flex */
+    align-items: center; /* Tailwind items-center */
+    margin-bottom: 0.5rem; /* Tailwind mb-2 */
 }
 
 .checkbox-label input {
-    margin-right: 0.5rem;
+    margin-right: 0.5rem; /* Tailwind mr-2 */
     width: auto; /* Prevent checkbox stretching */
     height: 1rem; /* Tailwind h-4 */
     width: 1rem; /* Tailwind w-4 */
@@ -148,23 +178,23 @@ button[type="submit"]:disabled {
 .checkbox-label label {
     font-weight: 400; /* Tailwind font-normal */
     margin-bottom: 0; /* Remove bottom margin for inline label */
+    /* ****** Increased font size by ~30% ****** */
+    /* Match other labels */
+    font-size: 1.1rem;
 }
 
-@media (max-width: 768px) {
-    .form-container {
-        max-height: none;
-        width: 90%;
-        margin: 2rem auto;
-    }
 
-    .background-container {
-        /* Keep fixed on mobile for consistent background,
-           but ensure content scrolls over it */
-        position: fixed;
-    }
-    body {
-       padding-top: 0; /* Reset padding */
-    }
+@media (max-width: 768px) {
+    /* .form-container rules already present in HTML via Tailwind */
+    /* .background-container rule already present */
+     body {
+        padding-top: 0;
+     }
+     /* Adjust font sizes slightly for mobile if needed */
+     #legacyForm h2 { font-size: 1.125rem; } /* text-lg */
+     label, input, textarea, select, .checkbox-label label { font-size: 1rem; } /* text-base */
+     #submit-button { font-size: 1.125rem; } /* text-lg */
+
 }
 
 /* Device type indicator styles */
@@ -190,8 +220,13 @@ button[type="submit"]:disabled {
         width: 100%;
         margin: 0;
         padding: 0;
-        background-color: white !important; /* Override background */
-        position: static; /* Reset positioning */
+        background-color: white !important;
+        position: static;
+        font-size: 12pt; /* Base size for print */
+    }
+     /* Reset potentially larger fonts for print */
+    #legacyForm h2, label, input, textarea, select, .checkbox-label label, #submit-button {
+        font-size: inherit !important;
     }
 
     .form-container {
@@ -201,31 +236,29 @@ button[type="submit"]:disabled {
         width: 90%;
         margin: 0 auto;
         padding-bottom: 20px;
-        border: 1px solid #ccc; /* Add border for definition */
+        border: 1px solid #ccc;
     }
 
     .background-container,
-    .device-indicator {
-        display: none; /* Hide background and indicator */
+    .device-indicator,
+    #submit-button /* Hide submit button */ {
+        display: none;
     }
     .form-header {
-        background-color: #eee !important; /* Lighter header for print */
+        background-color: #eee !important;
         color: #000 !important;
     }
-    button[type="submit"] {
-        display: none; /* Hide submit button */
-    }
      label {
-        color: #000 !important; /* Ensure labels are black */
+        color: #000 !important;
      }
 }
 
-/* Feedback Message Styling (Copied from previous version) */
+/* Feedback Message Styling */
 #feedback-container {
-    /* padding: 1em; */ /* Handled by utility classes in HTML now */
-    /* margin-bottom: 1em; */ /* Handled by utility classes in HTML now */
-    /* border-radius: 5px; */ /* Handled by utility classes in HTML now */
+    /* Padding/margin/border set via Tailwind in HTML */
     text-align: center;
+    /* ****** Increased font size by ~30% ****** */
+    font-size: 1.1rem; /* Match other form text */
 }
 
 #feedback-container.success {
