@@ -7,143 +7,92 @@ body {
     background-color: #f5f7fa;
     padding-top: 1px;
     margin: 0;
-    /* Base font size for desktop */
-    font-size: 16px; /* Setting a base */
+    font-size: 16px; /* Base size */
 }
 
 .background-container {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    overflow: hidden;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; overflow: hidden;
 }
-
-.background-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
+.background-img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
 .form-container {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 85vh;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    position: relative;
-    z-index: 1;
+    background-color: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 85vh; overflow-y: auto; scrollbar-width: thin;
+    position: relative; z-index: 1;
 }
-/* Scrollbar styling */
 .form-container::-webkit-scrollbar { width: 8px; }
 .form-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px; }
 .form-container::-webkit-scrollbar-thumb { background: #888; border-radius: 8px; }
 .form-container::-webkit-scrollbar-thumb:hover { background: #555; }
 
-.form-header {
-    background-color: #1e3a8a;
-    color: white;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-/* Increased header text size further */
+.form-header { background-color: #1e3a8a; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px; }
 .form-header h1 {
-    /* font-size: 1.3em; */ /* Previous size */
-    font-size: 1.5em; /* Further increase */
+    /* font-size: 1.5em; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.2em; /* Approx 1.5 * 1.5 */
 }
 
 .logo { width: 40px; height: 40px; vertical-align: middle; }
 
-.form-section {
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 1rem;
-}
-
-/* Increased section header text size further */
+.form-section { border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; }
 #legacyForm h2 {
-    /* font-size: 1.25rem; */ /* Previous size (text-xl) */
-    font-size: 1.6rem; /* Further increase */
-    /* line-height: 1.75rem; */ /* Adjust if needed */
+    /* font-size: 1.6rem; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.4rem; /* Approx 1.5 * 1.6 */
 }
-
 .form-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
 input[type="text"],
 input[type="email"],
 textarea,
 select {
-    border: 1px solid #d1d5db;
-    width: 100%;
-    padding: 0.75rem; /* Slightly increase padding */
-    border-radius: 4px;
-    /* font-size: 1.1rem; */ /* Previous size */
-    /* ****** Increased font size further for Desktop ****** */
-    font-size: 1.3rem; /* Approx 21px */
-    line-height: 1.5;
+    border: 1px solid #d1d5db; width: 100%; padding: 0.75rem; border-radius: 4px;
+    /* font-size: 1.3rem; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.0rem; /* Approx 1.5 * 1.3 */
+    line-height: 1.4; /* Adjusted line-height for larger font */
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus,
 select:focus {
-     outline: none;
-     border-color: #3b82f6;
+     outline: none; border-color: #3b82f6;
      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
  }
 
 label {
-    font-weight: 500;
-    display: block;
-    margin-bottom: 0.25rem;
-    color: #1f2937;
-    /* font-size: 1.1rem; */ /* Previous size */
-    /* ****** Increased font size further for Desktop ****** */
-    font-size: 1.3rem; /* Match input fields */
+    font-weight: 500; display: block; margin-bottom: 0.25rem; color: #1f2937;
+    /* font-size: 1.3rem; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.0rem; /* Match inputs */
 }
-
 .required::after { content: " *"; color: #ef4444; }
 
 #submit-button {
-    background-color: #1e3a8a;
-    color: white;
-    font-weight: 500;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-    /* font-size: 1.3rem; */ /* Previous size */
-    /* ****** Increased font size further for Desktop ****** */
-    font-size: 1.5rem; /* Approx 24px */
+    background-color: #1e3a8a; color: white; font-weight: 500; padding: 0.75rem 1.5rem;
+    border-radius: 4px; transition: background-color 0.2s; border: none;
+    width: 100%; cursor: pointer;
+    /* font-size: 1.5rem; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.2rem; /* Approx 1.5 * 1.5 */
 }
 #submit-button:hover { background-color: #1e40af; }
 #submit-button:disabled { background-color: #9ca3af; cursor: not-allowed; opacity: 0.7; }
 
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-.checkbox-label input {
-    margin-right: 0.5rem;
-    width: auto;
-    height: 1rem;
-    width: 1rem;
-}
+.checkbox-label { display: flex; align-items: center; margin-bottom: 0.5rem; }
+.checkbox-label input { margin-right: 0.5rem; width: auto; height: 1rem; width: 1rem; }
 .checkbox-label label {
-    font-weight: 400;
-    margin-bottom: 0;
-    /* font-size: 1.1rem; */ /* Previous size */
-    /* ****** Increased font size further for Desktop ****** */
-    font-size: 1.3rem; /* Match other labels */
+    font-weight: 400; margin-bottom: 0;
+    /* font-size: 1.3rem; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.0rem; /* Match other labels */
 }
 
-/* Keep mobile sizes smaller */
+/* Keep mobile sizes smaller - unchanged from previous */
 @media (max-width: 768px) {
-     body {
-        padding-top: 0;
-     }
-     /* These sizes are smaller than the new desktop defaults */
+     body { padding-top: 0; }
+     /* These sizes are significantly smaller than the new desktop defaults */
      #legacyForm h2 { font-size: 1.125rem !important; } /* text-lg */
      label, input, textarea, select, .checkbox-label label { font-size: 1rem !important; } /* text-base */
      #submit-button { font-size: 1.125rem !important; } /* text-lg */
@@ -151,13 +100,12 @@ label {
 }
 
 .device-indicator {
-    position: fixed; bottom: 10px; right: 10px;
-    background-color: rgba(0,0,0,0.7); color: white;
-    padding: 5px 8px; border-radius: 4px; font-size: 12px; z-index: 1000;
+    position: fixed; bottom: 10px; right: 10px; background-color: rgba(0,0,0,0.7);
+    color: white; padding: 5px 8px; border-radius: 4px; font-size: 12px; z-index: 1000;
 }
 .hidden { display: none; }
 
-@media print {
+@media print { /* Print styles unchanged */
     body { width: 100%; margin: 0; padding: 0; background-color: white !important; position: static; font-size: 12pt; }
     #legacyForm h2, label, input, textarea, select, .checkbox-label label, #submit-button, #feedback-container { font-size: inherit !important; }
     .form-container { max-height: none; overflow: visible; box-shadow: none; width: 90%; margin: 0 auto; padding-bottom: 20px; border: 1px solid #ccc; }
@@ -168,8 +116,9 @@ label {
 
 #feedback-container {
     text-align: center;
-    /* ****** Increased font size further for Desktop ****** */
-    font-size: 1.3rem; /* Match other form text */
+    /* font-size: 1.3rem; */ /* Previous */
+    /* ****** Increased font size by ~50% ****** */
+    font-size: 2.0rem; /* Match other form text */
 }
 #feedback-container.success { background-color: #dff0d8; color: #3c763d; border-color: #d6e9c6; }
 #feedback-container.error { background-color: #f2dede; color: #a94442; border-color: #ebccd1; }
